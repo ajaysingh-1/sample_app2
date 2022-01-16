@@ -1,3 +1,26 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
-<p>This will be a signup page for new users.</p>
+<% provide(:title, 'Add New User') %>
+<h1>Add New User</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :Male %>
+      <%= f.radio_button :gender, "male", class: 'form-control' %>
+      <%= f.label :Female %>
+      <%= f.radio_button :gender, "female", class: 'form-control' %>
+      
+      <%= f.label :Status %>
+      <%= f.check_box :active, class: 'form-control' %>
+
+      <%= f.submit "Create new user", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
